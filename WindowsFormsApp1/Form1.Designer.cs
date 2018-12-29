@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace SudokuGUI
 {
     partial class Form1
     {

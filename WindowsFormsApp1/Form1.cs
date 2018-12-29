@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace SudokuGUI
 {
     public partial class Form1 : Form
     {
@@ -119,7 +119,7 @@ namespace WindowsFormsApp1
                 {
                     if (BitMap[j] == 0)
                     {
-                        String Str = "行非法" + i;
+                        String Str = "行非法" + (i + 1);
                         System.Windows.Forms.MessageBox.Show(Str);
                         //printf("行非法：%d, %d\n", i, j);
                         return false;//出现不合法数独
@@ -140,7 +140,7 @@ namespace WindowsFormsApp1
                 {
                     if (BitMap[i] == 0)
                     {
-                        String Str = "列非法" + j;
+                        String Str = "列非法" + (j + 1);
                         System.Windows.Forms.MessageBox.Show(Str);
                         //printf("列非法：%d, %d\n", i, j);
                         return false;//出现不合法数独
@@ -217,12 +217,11 @@ namespace WindowsFormsApp1
             {
                 for(int col = 0; col < 9; col++)
                 {
-                    if(Sudo[row, col] == 0) { //给Sudo以答案
-                        String Str = Boxes[row, col].Text;
-                        bool b = int.TryParse(Str, out Sudo[row, col]);
+                    //给Sudo以答案
+                    String Str = Boxes[row, col].Text;
+                    bool b = int.TryParse(Str, out Sudo[row, col]);
                         
-                        //bool parsed = Int32.TryParse(Str, out Sudo[row, col]);
-                    }
+                    //bool parsed = Int32.TryParse(Str, out Sudo[row, col]);
                 }
             }
         }
